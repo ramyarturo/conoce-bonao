@@ -36,6 +36,7 @@ class BuildingItemCard extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       return Card(
           elevation: 3,
+          
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -57,12 +58,9 @@ class BuildingItemCard extends StatelessWidget {
                     ),
                     ItemRatingBar(rating: buildingInfo.rating),
                     Text(buildingInfo.address),
-                    SizedBox(
-                      height: constraints.maxHeight * .2,
-                      child: OutlinedButton(
-                        onPressed: onPressed,
-                        child: const Text("Llegar"),
-                      ),
+                    OutlinedButton(
+                      onPressed: onPressed,
+                      child: const Text("Llegar"),
                     ),
                   ],
                 ),

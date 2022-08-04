@@ -43,9 +43,7 @@ class EcotourismDetailPage extends StatelessWidget {
                               secundary: true,
                               onPressed: () {
                                 final location = ecotourism.location;
-                                IntentUtils.openMap(
-                                  address: "${location.latitude},${location.longitude}",
-                                );
+                                IntentUtils.openNavigationMap(latLng: location.toLatLng());
                               },
                             ),
                           )

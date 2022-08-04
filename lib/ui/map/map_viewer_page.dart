@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:conoce_bonao/utils/intent_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -38,6 +39,7 @@ class _MapViewerPageState extends State<MapViewerPage> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -76,44 +78,43 @@ class _MapViewerPageState extends State<MapViewerPage> with SingleTickerProvider
                       opacity: opacityAnimation,
                       child: Align(
                         alignment: Alignment.bottomCenter,
-                        child: FractionallySizedBox(
-                          heightFactor: 0.23,
-                          widthFactor: 1,
-                          child: CarouselSlider.builder(
-                            carouselController: mapViewerController.carouselController,
-                            options: CarouselOptions(onPageChanged: ((index, reason) {
-                              mapViewerController.onCarouselIndexChanged(index);
-                            })),
-                            itemCount: mapViewerController.markers.length,
-                            itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
-                              final entries = mapViewerController.markers.entries.toList();
-                              if (entries.isEmpty) {
-                                return const SizedBox.shrink();
-                              }
-                              final entry = entries[itemIndex];
-                              final isRestaurant = entry.value is RestaurantModel;
-                              RestaurantModel? restaurant;
-                              HotelModel? hotel;
-                              if (isRestaurant) {
-                                restaurant = entry.value as RestaurantModel;
-                              } else {
-                                hotel = entry.value as HotelModel;
-                              }
+                        child: CarouselSlider.builder(
+                          carouselController: mapViewerController.carouselController,
+                          options: CarouselOptions(
+                              aspectRatio: size.height / size.width,
+                              onPageChanged: ((index, reason) {
+                                mapViewerController.onCarouselIndexChanged(index);
+                              })),
+                          itemCount: mapViewerController.markers.length,
+                          itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
+                            final entries = mapViewerController.markers.entries.toList();
+                            if (entries.isEmpty) {
+                              return const SizedBox.shrink();
+                            }
+                            final entry = entries[itemIndex];
+                            final isRestaurant = entry.value is RestaurantModel;
+                            RestaurantModel? restaurant;
+                            HotelModel? hotel;
+                            if (isRestaurant) {
+                              restaurant = entry.value as RestaurantModel;
+                            } else {
+                              hotel = entry.value as HotelModel;
+                            }
 
-                              return BuildingItemCard(
-                                  buildingInfo: BuildingInfo(
-                                    title: restaurant?.name ?? hotel!.name,
-                                    subtitle: restaurant?.title ?? "",
-                                    address: restaurant?.address ?? hotel!.address,
-                                    image: restaurant?.image ?? hotel!.image,
-                                    rating: restaurant?.rating ?? hotel!.rating,
-                                    photos: restaurant?.photos ?? hotel!.photos,
-                                  ),
-                                  onPressed: () {
-                                    mapViewerController.sendCameraTo(entry.key);
-                                  });
-                            },
-                          ),
+                            return BuildingItemCard(
+                                buildingInfo: BuildingInfo(
+                                  title: restaurant?.name ?? hotel!.name,
+                                  subtitle: restaurant?.title ?? "",
+                                  address: restaurant?.address ?? hotel!.address,
+                                  image: restaurant?.image ?? hotel!.image,
+                                  rating: restaurant?.rating ?? hotel!.rating,
+                                  photos: restaurant?.photos ?? hotel!.photos,
+                                ),
+                                onPressed: () {
+                                  mapViewerController.sendCameraTo(entry.key);
+                                  IntentUtils.openNavigationMap(latLng: entry.key.position);
+                                });
+                          },
                         ),
                       ),
                     );
