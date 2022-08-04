@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constants/theme.dart';
+import '../../controllers/main_controller.dart';
 import 'components/main_app_bar.dart';
 import 'components/main_carousel.dart';
 import 'components/main_ecotourism.dart';
@@ -15,6 +17,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  final mainController = Get.put(MainController());
+
   @override
   Widget build(BuildContext context) {
     return Material(

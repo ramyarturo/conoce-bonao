@@ -6,8 +6,8 @@ const String userCollection = "users";
 const String restaurantCollection = "restaurants";
 const String hotelCollection = "hotels";
 const String reservationCollection = "reservations";
+const String ecotourismCollection = "ecotourisms";
 const String imagesCollection = "images";
-
 
 final firebaseAuth = FirebaseAuth.instance;
 final firebaseFirestore = FirebaseFirestore.instance;

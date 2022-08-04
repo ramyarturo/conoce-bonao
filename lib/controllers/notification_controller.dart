@@ -9,6 +9,7 @@ import 'package:hive/hive.dart';
 import 'package:conoce_bonao/models/notification.dart';
 
 import '../ui/notifications/components/single_notification_item.dart';
+import '../utils/notification_utils.dart';
 
 class NotificationController extends GetxController {
   static const String notificationBoxKey = "notification_box";
@@ -50,6 +51,7 @@ class NotificationController extends GetxController {
   }
 
   onNewNotification(NotificationModel notification) {
+    NotificationUtils.show(notification);
     notificationList.add(notification);
     animatedKeyList.currentState?.insertItem(0, duration: 500.milliseconds);
   }

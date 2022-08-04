@@ -23,6 +23,9 @@ class $AssetsIconsGen {
   AssetGenImage get restaurantMarker =>
       const AssetGenImage('assets/icons/restaurant_marker.png');
 
+  /// File path: assets/icons/tag_note.png
+  AssetGenImage get tagNote => const AssetGenImage('assets/icons/tag_note.png');
+
   /// File path: assets/icons/temperature.png
   AssetGenImage get temperature =>
       const AssetGenImage('assets/icons/temperature.png');

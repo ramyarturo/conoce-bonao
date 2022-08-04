@@ -1,11 +1,12 @@
+import 'package:conoce_bonao/constants/theme.dart';
+import 'package:conoce_bonao/models/ecotourism.dart';
+import 'package:conoce_bonao/ui/ecotourism/ecotourism_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:conoce_bonao/constants/controllers.dart';
 import 'package:conoce_bonao/widgets/rounded_card_image.dart';
 import 'package:conoce_bonao/widgets/rx_value_listeneable.dart';
 import 'package:conoce_bonao/widgets/shimmer_loading_widget.dart';
-
-import '../../../widgets/photo_viewer.dart';
 
 class HomeEcotourism extends StatelessWidget {
   const HomeEcotourism({super.key});
@@ -19,7 +20,8 @@ class HomeEcotourism extends StatelessWidget {
           "Ecoturismo",
           style: Theme.of(context).textTheme.headline6,
         ),
-        RxValueListeneableBuilder<List<String>>(
+        const VerticalSpacing(defaultVerticalSpacing),
+        RxValueListeneableBuilder<List<Ecotourism>>(
           value: mainController.ecotourismList,
           onLoading: const _EcotourismLoadingShimmer(),
           builder: (context, data) {
@@ -28,27 +30,24 @@ class HomeEcotourism extends StatelessWidget {
                 child: Text("No existen ecoturismos registrados"),
               );
             }
-            data.shuffle();
-            final images = data.take(6).toList();
+            final list = data.take(6).toList();
 
             return GridView.count(
                 crossAxisCount: 3,
                 shrinkWrap: true,
                 mainAxisSpacing: 10.0,
                 crossAxisSpacing: 10.0,
+                padding: EdgeInsets.zero,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  for (var index = 0; index < images.length; index++)
+                  for (var index = 0; index < list.length; index++)
                     GestureDetector(
                       onTap: () {
-                        Get.to(PhotoGalleryViewer(
-                          images: images,
-                          initialIndex: index,
-                        ));
+                        Get.to(EcotourismDetailPage(ecotourism: list[index]));
                       },
                       child: _EcotourismItem(
                         index: index,
-                        image: images[index],
+                        image: list[index].image,
                       ),
                     )
                 ]);
@@ -102,18 +101,20 @@ class _EcotourismLoadingShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 3,
-      childAspectRatio: 1.6,
       mainAxisSpacing: 10.0,
       crossAxisSpacing: 10.0,
       shrinkWrap: true,
+      padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
       children: List.generate(
         6,
         (index) {
-          return ClipRRect(
+          return ShimmerLoadingWidget(
+              placeholder: Container(
+                  decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(75),
-            child: const ContainerLoadingPlaceholder(size: Size.square(75)),
-          );
+            color: Colors.white,
+          )));
         },
       ),
     );

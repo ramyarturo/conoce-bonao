@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:conoce_bonao/constants/controllers.dart';
-import 'package:conoce_bonao/widgets/network_bound_widget.dart';
 import 'package:conoce_bonao/widgets/rounded_card_image.dart';
 import 'package:conoce_bonao/widgets/rx_value_listeneable.dart';
 import 'package:conoce_bonao/widgets/shimmer_loading_widget.dart';
+import 'package:flutter/material.dart';
 
-import '../../../constants/repositories.dart';
 import '../../../models/hotel.dart';
 import '../../../widgets/rating_widget.dart';
 import '../../hotel/hotel_detail_page.dart';

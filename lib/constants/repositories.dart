@@ -1,3 +1,4 @@
+import 'package:conoce_bonao/data/repository/user_repository.dart';
 import 'package:get/get.dart';
 import 'package:conoce_bonao/data/repository/main_repository.dart';
 
@@ -9,6 +10,7 @@ import '../data/repository/resturant_repository.dart';
 
 MainRepository get mainRepository => Get.find();
 AuthRepository get authRepository => Get.find();
+UserRepository get userRepository => Get.find();
 HotelRepository get hotelRepository => Get.find();
 RestaurantRepository get restaurantRepository => Get.find();
 ProvinceRepository get provinceRepository => Get.find();

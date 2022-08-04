@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class AnimatedNumber extends StatelessWidget {
   final num number;
   final Color? color;
+  final Widget Function(num number)? builder;
 
   const AnimatedNumber({
     super.key,
     required this.number,
+    this.builder,
     this.color,
   });
   @override
@@ -16,7 +18,7 @@ class AnimatedNumber extends StatelessWidget {
       duration: const Duration(milliseconds: 1800),
       curve: Curves.decelerate,
       builder: (_, value, __) {
-        return Text(
+        return builder?.call(value) ?? Text(
           value.toStringAsFixed(number is int ? 0 : 1),
           style: TextStyle(
             color: color,

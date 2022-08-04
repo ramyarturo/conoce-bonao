@@ -3,7 +3,7 @@ import 'package:conoce_bonao/models/restaurant.dart';
 import 'package:conoce_bonao/widgets/rounded_card_image.dart';
 
 import '../../../gen/assets.gen.dart';
-import '../../../widgets/custom_back_button.dart';
+import '../../../widgets/buttons/custom_back_button.dart';
 
 class RestaurantImage extends StatelessWidget {
   final RestaurantModel restaurant;

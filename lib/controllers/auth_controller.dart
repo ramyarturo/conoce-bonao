@@ -1,3 +1,4 @@
+import 'package:conoce_bonao/constants/controllers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:conoce_bonao/constants/firebase.dart';
@@ -8,7 +9,6 @@ import 'package:conoce_bonao/widgets/loading_widget.dart';
 import '../constants/repositories.dart';
 
 class AuthController extends GetxController {
-  final userModel = Rx<UserModel?>(null);
   final firebaseUser = Rx<User?>(null);
 
   bool get isLoggedIn => firebaseUser.value != null;
@@ -22,13 +22,13 @@ class AuthController extends GetxController {
     _launchPage();
     ever(firebaseUser, (_) async {
       if (isLoggedIn) {
-        userModel.bindStream(_listenUserChanges());
+        userController.currentUser.bindStream(_listenUserChanges());
       } else {
-        userModel.value = null;
+        userController.currentUser.value = null;
         _launchPage();
       }
     });
-    ever(userModel, (_) {
+    once(userController.currentUser, (_) {
       _launchPage();
     });
   }

@@ -4,8 +4,9 @@ import 'package:conoce_bonao/constants/controllers.dart';
 import 'package:conoce_bonao/models/hotel.dart';
 import 'package:conoce_bonao/ui/auth/login/login_page.dart';
 import 'package:conoce_bonao/ui/hotel/components/hotel_description.dart';
-import 'package:conoce_bonao/widgets/custom_button.dart';
+import 'package:conoce_bonao/widgets/buttons/custom_button.dart';
 
+import '../../constants/theme.dart';
 import '../reservation/reservation_page.dart';
 import 'components/hotel_image.dart';
 import 'components/hotel_info.dart';
@@ -48,6 +49,7 @@ class _HotelDetailPageState extends State<HotelDetailPage> {
                             ),
                             child: HotelPhotos(hotel: widget.hotel),
                           ),
+                          const VerticalSpacing(),
                           SizedBox(
                             width: 300,
                             child: CustomButton(

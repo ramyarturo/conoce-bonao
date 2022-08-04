@@ -7,7 +7,9 @@ import 'package:conoce_bonao/ui/reservation/reservation_page.dart';
 import 'package:conoce_bonao/ui/restaurant/components/restaurant_description.dart';
 import 'package:conoce_bonao/ui/restaurant/components/restaurant_image.dart';
 import 'package:conoce_bonao/ui/restaurant/components/restaurant_photos.dart';
-import 'package:conoce_bonao/widgets/custom_button.dart';
+import 'package:conoce_bonao/widgets/buttons/custom_button.dart';
+
+import '../../constants/theme.dart';
 
 class RestaurantDetailPage extends StatefulWidget {
   RestaurantDetailPage({super.key, required this.restaurant});
@@ -44,6 +46,7 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
                             ),
                             child: RestaurantPhotos(restaurant: widget.restaurant),
                           ),
+                          const VerticalSpacing(),
                           SizedBox(
                             width: 300,
                             child: CustomButton(

@@ -1,3 +1,5 @@
+import 'package:conoce_bonao/constants/controllers.dart';
+import 'package:conoce_bonao/models/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:conoce_bonao/constants/fees.dart';
@@ -129,6 +131,7 @@ class RestaurantDetailStep extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DetailImage(imagePath: restaurant.image),
+        const VerticalSpacing(defaultVerticalSpacing),
         DetailHeading(
           title: restaurant.title,
           subtitle: "Reservar",

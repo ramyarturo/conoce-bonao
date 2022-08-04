@@ -20,7 +20,6 @@ class NotificationService extends GetxService {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       final notification = NotificationModel.fromRemoteMessage(message);
       notificationController.onNewNotification(notification);
-      NotificationUtils.show(notification);
     });
     FirebaseMessaging.onBackgroundMessage(_onBackgroundMessage);
   }

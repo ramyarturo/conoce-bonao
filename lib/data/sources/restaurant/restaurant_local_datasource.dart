@@ -36,4 +36,9 @@ class RestaurantLocalDataSource implements IRestaurantDataSource {
       )
     ];
   }
+
+  @override
+  Future<RestaurantModel> getRestaurantById(String id) {
+    throw UnimplementedError();
+  }
 }

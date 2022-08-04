@@ -38,4 +38,8 @@ class HotelLocalDataSource implements IHotelDataSource {
       )
     ];
   }
+  @override
+  Future<HotelModel> getHotelById(String id) {
+     throw UnimplementedError();
+  }
 }

@@ -1,9 +1,8 @@
 import 'package:intl/intl.dart';
 
 abstract class FormatUtils {
-  static final _currencyFormat = NumberFormat.currency(symbol: "\$RD ");
-
-  static String formatCurrency(number) {
-    return _currencyFormat.format(number);
+ 
+  static String formatCurrency(number, {String symbol = "\$RD "}) {
+    return NumberFormat.currency(symbol: symbol).format(number);
   }
 }

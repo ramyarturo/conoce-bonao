@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:conoce_bonao/models/hotel.dart';
-import 'package:conoce_bonao/widgets/custom_back_button.dart';
+import 'package:conoce_bonao/widgets/buttons/custom_back_button.dart';
 
 import '../../../widgets/rounded_card_image.dart';
 

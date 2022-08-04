@@ -1,3 +1,5 @@
+import 'package:conoce_bonao/controllers/user_controller.dart';
+import 'package:conoce_bonao/data/repository/user_repository.dart';
 import 'package:get/get.dart';
 
 import '../controllers/auth_controller.dart';
@@ -12,12 +14,13 @@ import '../data/services/notification_service.dart';
 import '../data/sources/hotel/hotel_remote_datasource.dart';
 import '../data/sources/restaurant/restaurant_remote_datasource.dart';
 
-
 diInjector() async {
   Get.put(MainRepository());
   Get.put(AuthController());
+  Get.put(UserController());
   Get.put(NotificationController());
   Get.put(AuthRepository());
+  Get.put(UserRepository());
   Get.put(NotificationService());
   Get.put<IHotelDataSource>(HotelRemoteDataSource());
   Get.put<IRestaurantDataSource>(RestaurantRemoteDataSource());

@@ -11,28 +11,30 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   var currentIndex = 0;
-  final homeController = Get.put(MainController());
   late final toMap = [
     () => const MainPage(),
     () => const MapViewerPage(),
     () => const NotificationPage(),
     () => const ProfilePage(),
   ].asMap();
+
+  void changeBottomNavIndex(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavbar(
         currentIndex: currentIndex,
-        onChanged: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
+        onChanged: changeBottomNavIndex,
       ),
       body: toMap.values.toList()[currentIndex](),
     );

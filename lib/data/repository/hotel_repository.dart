@@ -8,4 +8,8 @@ class HotelRepository {
   Future<Resource<List<HotelModel>>> getHotels() async {
     return await Resource.fromCallback(() => remoteDataSource.getHotels());
   }
+
+  Future<Resource<HotelModel>> getHotelById(String id) async {
+    return await Resource.fromCallback(() => remoteDataSource.getHotelById(id));
+  }
 }

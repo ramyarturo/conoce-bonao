@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:conoce_bonao/controllers/signup_controller.dart';
 import 'package:conoce_bonao/models/province.dart';
 import 'package:conoce_bonao/ui/auth/login/login_page.dart';
-import 'package:conoce_bonao/widgets/custom_button.dart';
-import 'package:conoce_bonao/widgets/custom_textfield.dart';
-import 'package:conoce_bonao/widgets/form_field_list_search.dart';
+import 'package:conoce_bonao/widgets/buttons/custom_button.dart';
+import 'package:conoce_bonao/widgets/textfield/custom_textfield.dart';
+import 'package:conoce_bonao/widgets/textfield/form_field_list_search.dart';
 
 import '../../../constants/repositories.dart';
 import '../../../constants/theme.dart';

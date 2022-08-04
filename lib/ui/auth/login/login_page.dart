@@ -4,8 +4,8 @@ import 'package:conoce_bonao/constants/theme.dart';
 import 'package:conoce_bonao/ui/auth/signup/signup_page.dart';
 import 'package:conoce_bonao/ui/home/home_page.dart';
 import 'package:conoce_bonao/utils/theme/colors.dart';
-import 'package:conoce_bonao/widgets/custom_button.dart';
-import 'package:conoce_bonao/widgets/custom_textfield.dart';
+import 'package:conoce_bonao/widgets/buttons/custom_button.dart';
+import 'package:conoce_bonao/widgets/textfield/custom_textfield.dart';
 import 'package:conoce_bonao/widgets/horizontal_lined_text.dart';
 
 import '../../../controllers/login_controller.dart';

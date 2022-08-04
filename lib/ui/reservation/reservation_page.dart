@@ -6,7 +6,7 @@ import 'package:conoce_bonao/models/hotel.dart';
 import 'package:conoce_bonao/models/restaurant.dart';
 import 'package:conoce_bonao/ui/reservation/components/reservation_stepper.dart';
 
-import '../../widgets/custom_button.dart';
+import '../../widgets/buttons/custom_button.dart';
 
 enum ReservationType { hotel, restaurant }
 

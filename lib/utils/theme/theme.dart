@@ -60,7 +60,9 @@ class AppTheme {
 
   static OutlinedButtonThemeData _outlinedButtonTheme() {
     return OutlinedButtonThemeData(
+    
       style: ButtonStyle(
+        padding: MaterialStateProperty.all(EdgeInsets.all(10)),
           overlayColor: MaterialStateProperty.all(darkGreyColor.withOpacity(0.3)),
           backgroundColor: MaterialStateProperty.all(greenColor),
           foregroundColor: MaterialStateProperty.all(Colors.white)),

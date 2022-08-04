@@ -8,17 +8,12 @@ class MainAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userName = authController.userModel.value?.fullName ?? "";
+    final userName = userController.currentUser.value?.fullName ?? "";
     return SliverPersistentHeader(
-      delegate: AppBarDelegate(title: "Bienvenido, $userName", actions: [
-        Visibility(
-          visible: authController.isLoggedIn,
-          child: IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: authController.logout,
-          ),
-        ),
-      ]),
+      delegate: AppBarDelegate(
+        title: "Bienvenido, $userName",
+        actions: [],
+      ),
     );
   }
 }

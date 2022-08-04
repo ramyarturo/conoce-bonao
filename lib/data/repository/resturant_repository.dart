@@ -9,4 +9,7 @@ class RestaurantRepository {
   Future<Resource<List<RestaurantModel>>> getRestaurants() async {
     return await Resource.fromCallback(() => remoteDataSource.getRestaurants());
   }
+  Future<Resource<RestaurantModel>> getRestaurantById(String id) async {
+    return await Resource.fromCallback(() => remoteDataSource.getRestaurantById(id));
+  }
 }
