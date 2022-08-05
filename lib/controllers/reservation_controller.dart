@@ -1,5 +1,7 @@
 import 'package:conoce_bonao/constants/theme.dart';
 import 'package:conoce_bonao/core/dialogs/reservation_balance_not_available.dart';
+import 'package:conoce_bonao/core/result.dart';
+import 'package:conoce_bonao/core/status.dart';
 import 'package:conoce_bonao/ui/profile/add_balance_page.dart';
 import 'package:conoce_bonao/utils/dialog_utils.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +25,8 @@ class ReservationController extends GetxController {
   var currentStep = 0;
   var stepState = RxMap.of(List.filled(3, false).asMap())..[0] = true;
   bool get isLastStep => currentStep == 2;
-  final creditCard = CreditCard().obs;
   late ReservationDetails reservationDetails;
   ReservationRequest get request => ReservationRequest(
-        creditCard: creditCard.value,
         userId: authController.firebaseUser.value!.uid,
         hotelReservationDetail: reservationDetails.isHotelReservation ? hotelReservation.value : null,
         restaurantReservationDetail: !reservationDetails.isHotelReservation ? restaurantReservation.value : null,
@@ -50,12 +50,7 @@ class ReservationController extends GetxController {
   onStepContinue() async {
     final currentKey = stepKeys[currentStep];
     final currentStepWidget = currentKey.currentWidget;
-    final currentStepState = currentKey.currentState;
-    if (currentStepState is BaseStep) {
-      if (!await currentStepState.validate()) {
-        return;
-      }
-    }
+
     if (currentStepWidget is DetailStep) {
       currentStep++;
       refresh();
@@ -79,12 +74,9 @@ class ReservationController extends GetxController {
       Get.bottomSheet(ReservationBalanceNotAvailableMessage(
         totalAmount: request.totalAmount,
         chargeNow: () async {
-          final balance = await Get.to(AddBalancePage());
-          if (balance is double) {
+          final result = await Get.to(const AddBalancePage());
+          if (result == Result.ok) {
             Get.back();
-            DialogUtils.showLoadingDialog(message: "Actualizando balance...");
-            await userController.updateUserBalance(balance);
-            DialogUtils.hideLoadingDialog();
             _performReservation();
           }
         },
@@ -109,9 +101,7 @@ class ReservationController extends GetxController {
 }
 
 class _ProcessingPaymentMessage extends StatelessWidget {
-  const _ProcessingPaymentMessage({
-    Key? key,
-  }) : super(key: key);
+  const _ProcessingPaymentMessage({super.key});
 
   @override
   Widget build(BuildContext context) {

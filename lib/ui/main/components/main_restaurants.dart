@@ -8,8 +8,8 @@ import '../../../models/restaurant.dart';
 import '../../../widgets/rounded_card_image.dart';
 import '../../../widgets/rx_value_listeneable.dart';
 
-class HomeRestaurants extends StatelessWidget {
-  const HomeRestaurants({Key? key}) : super(key: key);
+class MainRestaurants extends StatelessWidget {
+  const MainRestaurants({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

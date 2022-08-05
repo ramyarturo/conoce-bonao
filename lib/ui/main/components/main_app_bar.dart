@@ -10,7 +10,7 @@ class MainAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final userName = userController.currentUser.value?.fullName ?? "";
     return SliverPersistentHeader(
-      delegate: AppBarDelegate(
+      delegate: MainAppBarDelegate(
         title: "Bienvenido, $userName",
         actions: [],
       ),

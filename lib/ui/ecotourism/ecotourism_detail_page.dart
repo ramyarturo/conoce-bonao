@@ -1,5 +1,6 @@
 import 'package:conoce_bonao/models/ecotourism.dart';
-import 'package:conoce_bonao/ui/ecotourism/components/restaurant_image.dart';
+import 'package:conoce_bonao/ui/ecotourism/components/ecotourism_description.dart';
+import 'package:conoce_bonao/ui/ecotourism/components/ecoutourism_image.dart';
 import 'package:conoce_bonao/utils/intent_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,6 +35,8 @@ class EcotourismDetailPage extends StatelessWidget {
                       transform: Matrix4.identity().scaled(1.0, transform),
                       child: Column(
                         children: [
+                          const SizedBox(height: 15),
+                          EcotourismDescription(ecotourism: ecotourism),
                           const SizedBox(height: 15),
                           SizedBox(
                             width: 300,

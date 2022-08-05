@@ -29,6 +29,9 @@ class UserReservation {
 class UserController extends GetxController {
   final currentUser = Rx<UserModel?>(null);
   final userReservations = Resource(UserReservation.empty()).obs;
+
+  var _isUpdatingUser = false;
+  bool get isUpdatingUser => _isUpdatingUser;
   @override
   onReady() {
     super.onReady();
@@ -41,9 +44,11 @@ class UserController extends GetxController {
 
   updateUserBalance(double value) async {
     await Future.delayed(1.seconds);
+    _isUpdatingUser = true;
     await updateUser(currentUser.value!.copyWith(
       balance: currentUser.value!.balance + value,
     ));
+    _isUpdatingUser = false;
   }
 
   updateUserReservation(ReservationRequest request) async {
@@ -53,9 +58,8 @@ class UserController extends GetxController {
     DialogUtils.hideLoadingDialog();
   }
 
-  Stream<Resource<UserReservation>> listenCurrentUserReservations() async* {
- 
-    yield* authController.firebaseUser.stream.where((user) => user != null).switchMap((user) {
+  Stream<Resource<UserReservation>> listenCurrentUserReservations() {
+    return authController.firebaseUser.stream.where((user) => user != null).switchMap((user) {
       return firebaseFirestore
           .collection(reservationCollection)
           .where("userId", isEqualTo: user!.uid)

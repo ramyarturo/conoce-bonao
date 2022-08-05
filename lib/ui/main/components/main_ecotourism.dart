@@ -8,8 +8,8 @@ import 'package:conoce_bonao/widgets/rounded_card_image.dart';
 import 'package:conoce_bonao/widgets/rx_value_listeneable.dart';
 import 'package:conoce_bonao/widgets/shimmer_loading_widget.dart';
 
-class HomeEcotourism extends StatelessWidget {
-  const HomeEcotourism({super.key});
+class MainEcotourism extends StatelessWidget {
+  const MainEcotourism({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +17,7 @@ class HomeEcotourism extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          "Ecoturismo",
+          "Ecoturismo - Balnearios",
           style: Theme.of(context).textTheme.headline6,
         ),
         const VerticalSpacing(defaultVerticalSpacing),

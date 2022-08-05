@@ -3,11 +3,11 @@ import 'package:conoce_bonao/ui/main/components/search_bar.dart';
 
 import '../../../utils/theme/colors.dart';
 
-class AppBarDelegate extends SliverPersistentHeaderDelegate {
+class MainAppBarDelegate extends SliverPersistentHeaderDelegate {
   final String title;
   final List<Widget> actions;
 
-  AppBarDelegate({required this.title, required this.actions});
+  MainAppBarDelegate({required this.title, required this.actions});
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Stack(

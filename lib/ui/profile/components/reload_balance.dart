@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../constants/controllers.dart';
 import '../../../utils/theme/colors.dart';
 import '../add_balance_page.dart';
 
@@ -20,11 +18,7 @@ class ReloadBalance extends StatelessWidget {
             shape: const StadiumBorder(),
           ),
           onPressed: () {
-            Get.to(AddBalancePage())?.then((value) {
-              if (value is double) {
-                userController.updateUserBalance(value);
-              }
-            });
+            Get.to(const AddBalancePage());
           },
           child: const Text("Recargar Saldo"),
         ),

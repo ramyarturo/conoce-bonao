@@ -1,3 +1,4 @@
+import 'package:conoce_bonao/constants/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -51,23 +52,27 @@ class _ReservationPageState extends State<ReservationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      backgroundColor: Colors.white,
       body: GetBuilder<ReservationController>(builder: (_) {
-        return Column(
-          children: [
-            Flexible(
-              child: ReservationStepper(),
-            ),
-            SizedBox(
-              width: 300,
-              child: CustomButton(
-                text: reservationController.isLastStep ? "Listo!" : "Continuar",
-                icon: Icons.arrow_forward,
-                secundary: true,
-                onPressed: reservationController.onStepContinue,
+        return Padding(
+          padding: const EdgeInsets.only(
+            bottom: defaultPadding,
+          ),
+          child: Column(
+            children: [
+              Flexible(
+                child: ReservationStepper(),
               ),
-            )
-          ],
+              SizedBox(
+                width: 300,
+                child: CustomButton(
+                  text: reservationController.isLastStep ? "Listo!" : "Continuar",
+                  icon: Icons.arrow_forward,
+                  secundary: true,
+                  onPressed: reservationController.onStepContinue,
+                ),
+              )
+            ],
+          ),
         );
       }),
     );

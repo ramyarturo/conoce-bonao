@@ -28,13 +28,15 @@ class AuthController extends GetxController {
         _launchPage();
       }
     });
-    once(userController.currentUser, (_) {
+    ever(userController.currentUser, (_) {
       _launchPage();
     });
   }
 
   _launchPage() {
-    Get.offAll(() => const HomePage());
+    if (!userController.isUpdatingUser) {
+      Get.offAll(() => const HomePage());
+    }
   }
 
   logout() async {

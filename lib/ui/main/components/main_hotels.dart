@@ -8,8 +8,8 @@ import '../../../models/hotel.dart';
 import '../../../widgets/rating_widget.dart';
 import '../../hotel/hotel_detail_page.dart';
 
-class HomeHotels extends StatelessWidget {
-  const HomeHotels({Key? key}) : super(key: key);
+class MainHotels extends StatelessWidget {
+  const MainHotels({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class HomeHotels extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Hoteles",
+          "Hoteles y Villas",
           style: Theme.of(context).textTheme.headline6,
         ),
         ConstrainedBox(

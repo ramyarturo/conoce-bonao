@@ -33,11 +33,11 @@ class _MainPageState extends State<MainPage> {
             padding: const EdgeInsets.all(10),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
-                const HomeEcotourism(),
+                const MainEcotourism(),
                 const VerticalSpacing(),
-                const HomeRestaurants(),
+                const MainRestaurants(),
                 const VerticalSpacing(),
-                const HomeHotels(),
+                const MainHotels(),
               ]),
             ),
           )
