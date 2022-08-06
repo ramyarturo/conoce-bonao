@@ -25,9 +25,11 @@ class HotelDescription extends StatelessWidget {
               Icons.location_on_outlined,
               color: greenColor,
             ),
-            Text(
-              hotel.address,
-              style: theme.textTheme.labelSmall,
+            Expanded(
+              child: Text(
+                hotel.address,
+                style: theme.textTheme.labelSmall,
+              ),
             ),
           ],
         ),
@@ -35,7 +37,7 @@ class HotelDescription extends StatelessWidget {
         ReadMoreText(
           hotel.description,
           style: theme.textTheme.bodyLarge,
-          trimLines: 2,
+          trimLines: 15,
           colorClickableText: greenDarkerColor,
           trimMode: TrimMode.Line,
           trimCollapsedText: 'ver mas...',

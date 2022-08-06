@@ -15,17 +15,18 @@ import '../data/sources/hotel/hotel_remote_datasource.dart';
 import '../data/sources/restaurant/restaurant_remote_datasource.dart';
 
 diInjector() async {
-  Get.put(MainRepository());
-  Get.put(AuthController());
-  Get.put(UserController());
-  Get.put(NotificationController());
-  Get.put(AuthRepository());
-  Get.put(UserRepository());
-  Get.put(NotificationService());
-  Get.put<IHotelDataSource>(HotelRemoteDataSource());
-  Get.put<IRestaurantDataSource>(RestaurantRemoteDataSource());
-  Get.put(HotelRepository(remoteDataSource: Get.find()));
-  Get.put(RestaurantRepository(remoteDataSource: Get.find()));
-  Get.put(ProvinceRepository());
-  Get.put(ReservationRepository());
+  put<T>(T dependency) => Get.put<T>(dependency, permanent: true);
+  put(MainRepository());
+  put(AuthController());
+  put(UserController());
+  put(NotificationController());
+  put(AuthRepository());
+  put(UserRepository());
+  put(NotificationService());
+  put<IHotelDataSource>(HotelRemoteDataSource());
+  put<IRestaurantDataSource>(RestaurantRemoteDataSource());
+  put(HotelRepository(remoteDataSource: Get.find()));
+  put(RestaurantRepository(remoteDataSource: Get.find()));
+  put(ProvinceRepository());
+  put(ReservationRepository());
 }

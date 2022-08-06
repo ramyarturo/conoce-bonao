@@ -1,20 +1,16 @@
+import 'package:conoce_bonao/constants/controllers.dart';
 import 'package:conoce_bonao/constants/theme.dart';
 import 'package:conoce_bonao/core/dialogs/reservation_balance_not_available.dart';
 import 'package:conoce_bonao/core/result.dart';
-import 'package:conoce_bonao/core/status.dart';
-import 'package:conoce_bonao/ui/profile/add_balance_page.dart';
-import 'package:conoce_bonao/utils/dialog_utils.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:conoce_bonao/constants/controllers.dart';
 import 'package:conoce_bonao/models/reservation.dart';
 import 'package:conoce_bonao/models/restaurant_reservation.dart';
 import 'package:conoce_bonao/ui/home/home_page.dart';
+import 'package:conoce_bonao/ui/profile/add_balance_page.dart';
 import 'package:conoce_bonao/ui/reservation/reservation_page.dart';
-import 'package:conoce_bonao/ui/reservation/steps/base_step.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants/repositories.dart';
-import '../models/credit_card.dart';
 import '../models/hotel_reservation.dart';
 import '../models/notification.dart';
 import '../ui/reservation/steps/confirm_step.dart';

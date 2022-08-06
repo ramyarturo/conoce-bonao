@@ -36,7 +36,6 @@ class _MainPageState extends State<MainPage> {
                 const MainEcotourism(),
                 const VerticalSpacing(),
                 const MainRestaurants(),
-                const VerticalSpacing(),
                 const MainHotels(),
               ]),
             ),

@@ -80,11 +80,9 @@ class _MapViewerPageState extends State<MapViewerPage> with SingleTickerProvider
                         alignment: Alignment.bottomCenter,
                         child: CarouselSlider.builder(
                           carouselController: mapViewerController.carouselController,
-                          options: CarouselOptions(
-                              aspectRatio: size.height / size.width,
-                              onPageChanged: ((index, reason) {
-                                mapViewerController.onCarouselIndexChanged(index);
-                              })),
+                          options: CarouselOptions(onPageChanged: ((index, reason) {
+                            mapViewerController.onCarouselIndexChanged(index);
+                          })),
                           itemCount: mapViewerController.markers.length,
                           itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
                             final entries = mapViewerController.markers.entries.toList();

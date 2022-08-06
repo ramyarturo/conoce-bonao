@@ -15,15 +15,22 @@ class EcotourismDescription extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 15),
+        Text(
+          ecotourism.name,
+          style: theme.textTheme.headlineMedium,
+        ),
+        const SizedBox(height: 15),
         Row(
           children: [
             const Icon(
               Icons.location_on_outlined,
               color: greenColor,
             ),
-            Text(
-              ecotourism.address,
-              style: theme.textTheme.labelSmall,
+            Expanded(
+              child: Text(
+                ecotourism.address,
+                style: theme.textTheme.labelSmall,
+              ),
             ),
           ],
         ),
@@ -31,7 +38,7 @@ class EcotourismDescription extends StatelessWidget {
         ReadMoreText(
           ecotourism.description,
           style: theme.textTheme.bodyLarge,
-          trimLines: 2,
+          trimLines: 20,
           colorClickableText: greenDarkerColor,
           trimMode: TrimMode.Line,
           trimCollapsedText: 'ver mas...',

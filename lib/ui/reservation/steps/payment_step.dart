@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:conoce_bonao/constants/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:conoce_bonao/ui/reservation/steps/base_step.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
@@ -23,7 +24,7 @@ class _PaymentStepState extends BaseStep<PaymentStep> {
         isHolderNameVisible: true,
         cvvCode: "",
         showBackView: false,
-        labelCardHolder: "Nombre",
+        labelCardHolder: userController.currentUser.value!.fullName,
         onCreditCardWidgetChange: (creditCard) {},
       ),
     );

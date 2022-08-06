@@ -2,16 +2,8 @@ import 'package:conoce_bonao/models/ecotourism.dart';
 import 'package:conoce_bonao/ui/ecotourism/components/ecotourism_description.dart';
 import 'package:conoce_bonao/ui/ecotourism/components/ecoutourism_image.dart';
 import 'package:conoce_bonao/utils/intent_utils.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:conoce_bonao/constants/controllers.dart';
-import 'package:conoce_bonao/models/restaurant.dart';
-import 'package:conoce_bonao/ui/auth/login/login_page.dart';
-import 'package:conoce_bonao/ui/reservation/reservation_page.dart';
-import 'package:conoce_bonao/ui/restaurant/components/restaurant_description.dart';
-import 'package:conoce_bonao/ui/restaurant/components/restaurant_image.dart';
-import 'package:conoce_bonao/ui/restaurant/components/restaurant_photos.dart';
 import 'package:conoce_bonao/widgets/buttons/custom_button.dart';
+import 'package:flutter/material.dart';
 
 class EcotourismDetailPage extends StatelessWidget {
   final Ecotourism ecotourism;
@@ -35,6 +27,7 @@ class EcotourismDetailPage extends StatelessWidget {
                       transform: Matrix4.identity().scaled(1.0, transform),
                       child: Column(
                         children: [
+                          
                           const SizedBox(height: 15),
                           EcotourismDescription(ecotourism: ecotourism),
                           const SizedBox(height: 15),

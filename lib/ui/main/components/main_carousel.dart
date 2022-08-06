@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:conoce_bonao/widgets/photo_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:conoce_bonao/constants/controllers.dart';
 import 'package:conoce_bonao/widgets/rounded_card_image.dart';
 import 'package:conoce_bonao/widgets/rx_value_listeneable.dart';
 import 'package:conoce_bonao/widgets/shimmer_loading_widget.dart';
+import 'package:get/get.dart';
 
 class MainCarousel extends StatelessWidget {
   const MainCarousel({Key? key}) : super(key: key);
@@ -30,9 +32,14 @@ class MainCarousel extends StatelessWidget {
               itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
                 return Padding(
                   padding: const EdgeInsets.all(6),
-                  child: RoundedCardImage(
-                    image: images[itemIndex],
-                    size: const Size.fromHeight(200),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(PhotoGalleryViewer(images: images, initialIndex: itemIndex));
+                    },
+                    child: RoundedCardImage(
+                      image: images[itemIndex],
+                      size: const Size.fromHeight(200),
+                    ),
                   ),
                 );
               },

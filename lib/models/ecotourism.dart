@@ -4,12 +4,14 @@ import 'dart:convert';
 import 'location.dart';
 
 class Ecotourism {
+  String name;
   String image;
   String description;
 
   String address;
   LocationModel location;
   Ecotourism({
+    required this.name,
     required this.image,
     required this.description,
     required this.address,
@@ -18,6 +20,7 @@ class Ecotourism {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'name': name,
       'image': image,
       'description': description,
       'address': address,
@@ -27,6 +30,7 @@ class Ecotourism {
 
   factory Ecotourism.fromMap(Map<String, dynamic> map) {
     return Ecotourism(
+      name: map['name'],
       image: map['image'],
       description: map['description'],
       address: map['address'],

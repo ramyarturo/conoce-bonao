@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 
 class ImageCollectionInfo {
   List<String> hotels;

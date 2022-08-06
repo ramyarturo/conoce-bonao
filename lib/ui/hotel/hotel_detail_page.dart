@@ -13,7 +13,7 @@ import 'components/hotel_info.dart';
 import 'components/hotel_photos.dart';
 
 class HotelDetailPage extends StatefulWidget {
-  HotelDetailPage({super.key, required this.hotel});
+  const HotelDetailPage({super.key, required this.hotel});
   final HotelModel hotel;
 
   @override

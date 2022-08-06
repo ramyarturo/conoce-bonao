@@ -33,19 +33,18 @@ class BuildingItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return Card(
-          elevation: 3,
-          
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
+    return Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -64,14 +63,14 @@ class BuildingItemCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(width: 15),
-                RoundedCardImage(
-                  image: buildingInfo.image,
-                  size: const Size.square(60),
-                ),
-              ],
-            ),
-          ));
-    });
+              ),
+              const SizedBox(width: 15),
+              RoundedCardImage(
+                image: buildingInfo.image,
+                size: const Size.square(60),
+              ),
+            ],
+          ),
+        ));
   }
 }
